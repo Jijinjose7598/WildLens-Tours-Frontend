@@ -11,7 +11,7 @@ const Hotels = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/hotels');
+        const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/hotels');
         const hotelsData = Array.isArray(response.data) ? response.data : [];
         setHotels(hotelsData);
       } catch (error) {

@@ -1,14 +1,14 @@
-import React, { useState, useContext } from 'react';
+import  { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faBank } from '@fortawesome/free-solid-svg-icons';
 import { faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { FaCheckCircle } from 'react-icons/fa';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext'; 
-import { useNavigate, useParams } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom'; 
 
 const Payment = () => {
-  const { bookingId } = useParams();
+  
   const { user } = useContext(AuthContext); 
   const [paymentMethod, setPaymentMethod] = useState('Credit Card');
   const [upiMethod, setUpiMethod] = useState(''); 
@@ -78,14 +78,14 @@ const Payment = () => {
       
       };
 
-      const paymentResponse = await axios.post('http://localhost:3001/api/payments/create', paymentData);
+      const paymentResponse = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/payments/create', paymentData);
       const paymentId = paymentResponse.data.paymentId; 
 
       if (!paymentId) {
         throw new Error('Payment ID is not defined');
       }
 
-      const statusUpdateResponse = await axios.put(`http://localhost:3001/api/payments/update-status/${paymentId}`);
+      const statusUpdateResponse = await axios.put(`https://wildlens-tours-backend-q5lv.onrender.com/api/payments/update-status/${paymentId}`);
       console.log('Payment status updated:', statusUpdateResponse.data);
 
       setShowSuccessPopup(true);

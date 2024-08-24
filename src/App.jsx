@@ -19,7 +19,6 @@ import MyTours from './pages/MyList';
 import Hotels from './pages/Hotels'
 import HotelDetails from './pages/HotelDetails';
 
-import ProtectedRoute from './components/ProtectedRoute'; 
 
 function App() {
   return (

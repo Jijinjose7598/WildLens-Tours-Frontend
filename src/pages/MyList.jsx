@@ -15,7 +15,7 @@ const MyTours = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/users/${user._id}/bookings`);
+        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/users/${user._id}/bookings`);
         console.log(response.data);
 
         const now = new Date();

@@ -12,7 +12,7 @@ function Header() {
 
   const handleLogout = async () => {
     try {
-      await axios.post('http://localhost:3000/api/auth/logout', null, {
+      await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/auth/logout', null, {
         withCredentials: true,
       });
 

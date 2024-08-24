@@ -14,7 +14,8 @@ const HotelDetails = () => {
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/hotels/${hotelId}`);
+        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/hotels/hotel/${hotelId}`);
+        console.log(response.data)
         setHotel(response.data);
       } catch (error) {
         setError('Failed to fetch hotel details');
@@ -29,7 +30,7 @@ const HotelDetails = () => {
 const handleRecommendationSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post(`http://localhost:3001/api/hotels/hotel/${hotelId}/recommendations`, {
+    const response = await axios.post(`https://wildlens-tours-backend-q5lv.onrender.com/api/hotels/hotel/${hotelId}/recommendations`, {
       userName: user.name,
       message: recommendation,
     });

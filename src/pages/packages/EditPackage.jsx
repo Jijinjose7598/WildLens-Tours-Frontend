@@ -13,7 +13,7 @@ const EditPackage = () => {
   useEffect(() => {
     const fetchPackage = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/api/packages/package/${packageId}`);
+        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/packages/package/${packageId}`);
         setPkg(response.data.data);
       } catch (error) {
         console.error('Error fetching package:', error);
@@ -45,7 +45,7 @@ const EditPackage = () => {
         ...values,
         images: values.images.map((url) => url.trim()),
       };
-      await axios.patch(`http://localhost:3001/api/packages/package/update/${packageId}`, updatedPackage);
+      await axios.patch(`https://wildlens-tours-backend-q5lv.onrender.com/api/packages/package/update/${packageId}`, updatedPackage);
       navigate(`/packages/${packageId}`);
     } catch (error) {
       console.error('Error updating package:', error);

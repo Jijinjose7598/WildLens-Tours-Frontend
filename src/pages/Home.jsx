@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaSearch, FaHome, FaCalendarAlt, FaTag, FaList, FaChevronLeft, FaChevronRight, FaUser, FaSignOutAlt, FaArrowCircleUp, FaPlus, FaUsers, FaHotel } from 'react-icons/fa';
 import '../App.css';
 import { useAuth } from '../context/AuthContext';
-import ReviewForm from './packages/ReviewForm';
+
 
 const Home = () => {
   const [tours, setTours] = useState([]);
@@ -13,8 +13,6 @@ const Home = () => {
   
   const [showMoreMenu, setShowMoreMenu] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
-  const [showReviewForm, setShowReviewForm] = useState(false);
-  const [bookingId, setBookingId] = useState(null);
   const { user, logout } = useAuth();
   const navigate = useNavigate();
   const scrollContainerRef = React.useRef(null);
@@ -22,7 +20,7 @@ const Home = () => {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/tours/');
+        const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/tours/');
         setTours(response.data.data);
       } catch (error) {
         console.error('Error fetching tours:', error.response || error.message);
@@ -34,7 +32,7 @@ const Home = () => {
   useEffect(() => {
     const fetchMostSellingPackages = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/packages/most-selling');
+        const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/packages/most-selling');
         setMostSellingPackages(response.data.data);
       } catch (error) {
         console.error('Error fetching most selling packages:', error.response || error.message);
@@ -47,7 +45,7 @@ const Home = () => {
 
   const handleGetUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/users');
+      const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/users');
       setUsers(response.data.data);
     } catch (error) {
       console.error('Error fetching users:', error.response || error.message);
@@ -56,7 +54,7 @@ const Home = () => {
 
   const handleDeleteTour = async (tourId) => {
     try {
-      await axios.delete(`http://localhost:3001/api/tours/delete/${tourId}`);
+      await axios.delete(`https://wildlens-tours-backend-q5lv.onrender.com/api/tours/delete/${tourId}`);
       setTours(tours.filter((tour) => tour._id !== tourId));
     } catch (error) {
       console.error('Error deleting tour:', error.response || error.message);
@@ -65,7 +63,7 @@ const Home = () => {
 
   const handleDeletePackage = async (packageId) => {
     try {
-      await axios.delete(`http://localhost:3001/api/packages/delete/${packageId}`);
+      await axios.delete(`https://wildlens-tours-backend-q5lv.onrender.com/api/packages/delete/${packageId}`);
       setMostSellingPackages(mostSellingPackages.filter((pkg) => pkg._id !== packageId));
     } catch (error) {
       console.error('Error deleting package:', error.response || error.message);

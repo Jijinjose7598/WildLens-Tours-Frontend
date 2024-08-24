@@ -156,7 +156,7 @@ const PackageBooking = () => {
     }
 
     try {
-      const bookingResponse = await axios.post('http://localhost:3001/api/bookings/package/create', {
+      const bookingResponse = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/bookings/package/create', {
         name,
         startDate,
         endDate,
@@ -172,7 +172,7 @@ const PackageBooking = () => {
       const bookingId = bookingResponse.data._id; // Ensure booking ID is captured here
 
       // Optionally, mark booking as completed if needed
-      // await axios.patch(`http://localhost:3001/api/bookings/complete/${bookingId}`);
+      // await axios.patch(`https://wildlens-tours-backend-q5lv.onrender.com/api/bookings/complete/${bookingId}`);
 
       navigate('/payment', {
         state: {

@@ -25,7 +25,7 @@ const CreatePackage = () => {
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const response = await axios.post('http://localhost:3001/api/packages/create', values);
+      const response = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/packages/create', values);
       console.log(response.data);
       navigate('/packages'); // Navigate back to the packages list after creation
     } catch (error) {

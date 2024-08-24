@@ -19,7 +19,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3001/api/auth/create', { name, email, password });
+      const response = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/auth/create', { name, email, password });
       setSuccess(response.data.message);
       // Redirect or show success message
       console.log('Registration successful!');

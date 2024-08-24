@@ -20,7 +20,7 @@ const Packages = () => {
       setLoading(true);
       setError('');
       try {
-        const response = await axios.get('http://localhost:3001/api/packages/');
+        const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/packages/');
         setPackages(response.data.data);
       } catch (error) {
         console.error('Error fetching packages:', error);
@@ -39,7 +39,7 @@ const Packages = () => {
         setLoading(true);
         setError('');
         try {
-          const response = await axios.get(`http://localhost:3001/api/packages/${packageId}`);
+          const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/packages/${packageId}`);
           setSelectedPackage(response.data.data);
         } catch (error) {
           console.error('Error fetching package details:', error);
@@ -56,7 +56,7 @@ const Packages = () => {
   const handleDeletePackage = async (pkgId) => {
     if (window.confirm('Are you sure you want to delete this package?')) {
       try {
-        await axios.delete(`http://localhost:3001/api/packages/delete/${pkgId}`);
+        await axios.delete(`https://wildlens-tours-backend-q5lv.onrender.com/api/packages/delete/${pkgId}`);
         setPackages(packages.filter((pkg) => pkg._id !== pkgId));
       } catch (error) {
         console.error('Error deleting package:', error);
