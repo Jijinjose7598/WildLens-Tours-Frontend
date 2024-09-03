@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import BookingForm from './PackageBooking.jsx.jsx';
+import { useParams, useNavigate } from 'react-router-dom';
+import BookingForm from './PackageBooking.jsx';
 import ReviewForm from './ReviewForm.jsx';
 import '../../App.css'; // Ensure this CSS file contains modal styles
+import { AuthContext } from '../../context/AuthContext'; // Import your AuthContext
 
 const PackageDetail = () => {
   const { packageId } = useParams();
+  const navigate = useNavigate();
+  const { isAuthenticated } = useContext(AuthContext); // Use the authentication status from context
   const [pkg, setPkg] = useState(null);
   const [error, setError] = useState(null);
   const [showBookingForm, setShowBookingForm] = useState(false);
@@ -18,7 +21,6 @@ const PackageDetail = () => {
       try {
         const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/packages/package/${packageId}`);
         setPkg(response.data.data);
-        
       } catch (error) {
         setError('Error fetching package. Please try again later.');
         console.error('Error fetching package:', error);
@@ -29,7 +31,11 @@ const PackageDetail = () => {
   }, [packageId]);
 
   const handleBookNowClick = () => {
-    setShowBookingForm(true);
+    if (!isAuthenticated) {
+      navigate('/login'); // Redirect to login if not authenticated
+    } else {
+      setShowBookingForm(true); // Show booking form if authenticated
+    }
   };
 
   const handleCloseForm = () => {
