@@ -16,7 +16,7 @@ const TourDetail = () => {
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/tours/tour/${tourId}`);
+        const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/tours/tour/${tourId}`);
         setTour(response.data);
       } catch (error) {
         console.error('Error fetching tour details:', error.response || error.message);

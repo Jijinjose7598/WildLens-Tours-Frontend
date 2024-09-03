@@ -21,7 +21,7 @@ const TourReview= ({ tourId, onClose }) => {
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           try {
             const response = await axios.post(
-              `https://wildlens-tours-backend-q5lv.onrender.com/api/tours/tour/${tourId}/review`,
+              `https://wildlens-tours-backend-tqh1.onrender.com/api/tours/tour/${tourId}/review`,
               values
             );
             console.log(response.data);

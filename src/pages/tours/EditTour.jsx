@@ -40,7 +40,7 @@ const EditTour = () => {
   useEffect(() => {
     const fetchTour = async () => {
       try {
-        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/tours/tour/${tourId}`);
+        const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/tours/tour/${tourId}`);
         setTour(response.data);
       } catch (error) {
         console.error('Error fetching tour:', error);
@@ -51,7 +51,7 @@ const EditTour = () => {
 
   const handleSubmit = async (values) => {
     try {
-      await axios.patch(`https://wildlens-tours-backend-q5lv.onrender.com/api/tours/update/${tourId}`, values);
+      await axios.patch(`https://wildlens-tours-backend-tqh1.onrender.com/api/tours/update/${tourId}`, values);
       navigate('/');
     } catch (error) {
       console.error('Error updating tour:', error.response || error.message);

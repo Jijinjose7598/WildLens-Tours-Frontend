@@ -11,7 +11,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/users');
+        const response = await axios.get('https://wildlens-tours-backend-tqh1.onrender.com/api/users');
         setUsers(response.data.data);
         setLoading(false); // Set loading to false after data is fetched
       } catch (error) {

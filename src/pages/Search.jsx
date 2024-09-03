@@ -33,7 +33,7 @@ const Search = () => {
 
       console.log('Searching with params:', params);
 
-      const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/tours/search', {
+      const response = await axios.get('https://wildlens-tours-backend-tqh1.onrender.com/api/tours/search', {
         params,
       });
 

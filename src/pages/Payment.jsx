@@ -78,14 +78,14 @@ const Payment = () => {
       
       };
 
-      const paymentResponse = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/payments/create', paymentData);
+      const paymentResponse = await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/payments/create', paymentData);
       const paymentId = paymentResponse.data.paymentId; 
 
       if (!paymentId) {
         throw new Error('Payment ID is not defined');
       }
 
-      const statusUpdateResponse = await axios.put(`https://wildlens-tours-backend-q5lv.onrender.com/api/payments/update-status/${paymentId}`);
+      const statusUpdateResponse = await axios.put(`https://wildlens-tours-backend-tqh1.onrender.com/api/payments/update-status/${paymentId}`);
       console.log('Payment status updated:', statusUpdateResponse.data);
 
       setShowSuccessPopup(true);

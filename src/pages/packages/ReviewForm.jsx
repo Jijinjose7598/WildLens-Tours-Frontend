@@ -21,7 +21,7 @@ const ReviewForm = ({ packageId, onClose }) => {
         onSubmit={async (values, { setSubmitting, resetForm }) => {
           try {
             const response = await axios.post(
-              `https://wildlens-tours-backend-q5lv.onrender.com/api/packages/package/${packageId}/review`,
+              `https://wildlens-tours-backend-tqh1.onrender.com/api/packages/package/${packageId}/review`,
               values
             );
             console.log(response.data);

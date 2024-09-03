@@ -34,7 +34,7 @@ const PackageBooking = () => {
 
     const fetchPackage = async () => {
       try {
-        const response = await axios.get(`http://localhost:3001/api/packages/package/${packageId}`); // Adjust API endpoint for package
+        const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/packages/package/${packageId}`); // Adjust API endpoint for package
         console.log(response.data);
         setPricePerPerson(response.data.data.price);
       } catch (error) {
@@ -49,7 +49,7 @@ const PackageBooking = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/hotels/');
+        const response = await axios.get('https://wildlens-tours-backend-tqh1.onrender.com/api/hotels/');
         setHotels(response.data);
       } catch (error) {
         console.error('Error fetching hotels:', error.response || error.message);
@@ -64,7 +64,7 @@ const PackageBooking = () => {
     const fetchHotelDetails = async () => {
       if (selectedHotel) {
         try {
-          const response = await axios.get(`http://localhost:3001/api/hotels/hotel/${selectedHotel}`);
+          const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/hotels/hotel/${selectedHotel}`);
           const hotel = response.data;
           setPricePerNight(hotel.pricePerNight);
         } catch (error) {
@@ -82,7 +82,7 @@ const PackageBooking = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/users');
+        const response = await axios.get('https://wildlens-tours-backend-tqh1.onrender.com/api/users');
         // Access the data field which contains the array of users
         if (Array.isArray(response.data.data)) {
           setUsers(response.data.data);
@@ -156,7 +156,7 @@ const PackageBooking = () => {
     }
 
     try {
-      const bookingResponse = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/bookings/package/create', {
+      const bookingResponse = await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/bookings/package/create', {
         name,
         startDate,
         endDate,
@@ -172,7 +172,7 @@ const PackageBooking = () => {
       const bookingId = bookingResponse.data._id; // Ensure booking ID is captured here
 
       // Optionally, mark booking as completed if needed
-      // await axios.patch(`https://wildlens-tours-backend-q5lv.onrender.com/api/bookings/complete/${bookingId}`);
+      // await axios.patch(`https://wildlens-tours-backend-tqh1.onrender.com/api/bookings/complete/${bookingId}`);
 
       navigate('/payment', {
         state: {

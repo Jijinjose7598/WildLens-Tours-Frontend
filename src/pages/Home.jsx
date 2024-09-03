@@ -20,7 +20,7 @@ const Home = () => {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/tours/');
+        const response = await axios.get('https://wildlens-tours-backend-tqh1.onrender.com/api/tours/');
         setTours(response.data.data);
       } catch (error) {
         console.error('Error fetching tours:', error.response || error.message);
@@ -32,7 +32,7 @@ const Home = () => {
   useEffect(() => {
     const fetchMostSellingPackages = async () => {
       try {
-        const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/packages/most-selling');
+        const response = await axios.get('https://wildlens-tours-backend-tqh1.onrender.com/api/packages/most-selling');
         setMostSellingPackages(response.data.data);
       } catch (error) {
         console.error('Error fetching most selling packages:', error.response || error.message);
@@ -45,7 +45,7 @@ const Home = () => {
 
   const handleGetUsers = async () => {
     try {
-      const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/users');
+      const response = await axios.get('https://wildlens-tours-backend-tqh1.onrender.com/api/users');
       setUsers(response.data.data);
     } catch (error) {
       console.error('Error fetching users:', error.response || error.message);
@@ -54,7 +54,7 @@ const Home = () => {
 
   const handleDeleteTour = async (tourId) => {
     try {
-      await axios.delete(`https://wildlens-tours-backend-q5lv.onrender.com/api/tours/delete/${tourId}`);
+      await axios.delete(`https://wildlens-tours-backend-tqh1.onrender.com/api/tours/delete/${tourId}`);
       setTours(tours.filter((tour) => tour._id !== tourId));
     } catch (error) {
       console.error('Error deleting tour:', error.response || error.message);
@@ -63,7 +63,7 @@ const Home = () => {
 
   const handleDeletePackage = async (packageId) => {
     try {
-      await axios.delete(`https://wildlens-tours-backend-q5lv.onrender.com/api/packages/delete/${packageId}`);
+      await axios.delete(`https://wildlens-tours-backend-tqh1.onrender.com/api/packages/delete/${packageId}`);
       setMostSellingPackages(mostSellingPackages.filter((pkg) => pkg._id !== packageId));
     } catch (error) {
       console.error('Error deleting package:', error.response || error.message);

@@ -53,7 +53,7 @@ function CreateTour() {
     e.preventDefault();
     console.log(formData); // Log form data for debugging
     try {
-      const response = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/tours/create', formData);
+      const response = await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/tours/create', formData);
       console.log(response.data);
       if (response.status === 201) {
         alert('Tour created successfully!');

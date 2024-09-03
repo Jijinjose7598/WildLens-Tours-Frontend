@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       try {
         const token = sessionStorage.getItem('token');
         if (token) {
-          const response = await axios.get('https://wildlens-tours-backend-q5lv.onrender.com/api/auth/me', {
+          const response = await axios.get('https://wildlens-tours-backend-tqh1.onrender.com/api/auth/me', {
             headers: { Authorization: `Bearer ${token}` }
           });
           console.log(response.data)
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/auth/signin', credentials);
+      const response = await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/auth/signin', credentials);
       sessionStorage.setItem('token', response.data.token);
       setUser(response.data.user);
     } catch (error) {
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/auth/logout');
+      await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/auth/logout');
       sessionStorage.removeItem('token');
       setUser(null);
     } catch (error) {

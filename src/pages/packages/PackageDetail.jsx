@@ -16,7 +16,7 @@ const PackageDetail = () => {
   useEffect(() => {
     const fetchPackage = async () => {
       try {
-        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/packages/package/${packageId}`);
+        const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/packages/package/${packageId}`);
         setPkg(response.data.data);
         
       } catch (error) {

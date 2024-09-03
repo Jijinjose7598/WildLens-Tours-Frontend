@@ -12,7 +12,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://wildlens-tours-backend-q5lv.onrender.com/api/auth/signin', { email, password });
+      const response = await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/auth/signin', { email, password });
       const { token, userId } = response.data;
       // Save token and userId to sessionStorage
       sessionStorage.setItem('token', token);

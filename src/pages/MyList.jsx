@@ -15,7 +15,7 @@ const MyTours = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try {
-        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/users/${user._id}/bookings`);
+        const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/users/${user._id}/bookings`);
         console.log(response.data);
 
         const now = new Date();
@@ -49,7 +49,7 @@ const MyTours = () => {
 
   const confirmCancel = async () => {
     try {
-      await axios.patch(`http://localhost:3001/api/bookings/canceled/${currentBookingId}`, {
+      await axios.patch(`https://wildlens-tours-backend-tqh1.onrender.com/api/bookings/canceled/${currentBookingId}`, {
         reason: cancellationReason
       });
       

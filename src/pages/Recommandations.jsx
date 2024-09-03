@@ -8,7 +8,7 @@ const Recommendations = ({ userId }) => {
     const fetchRecommendations = async () => {
       try {
         // Fetch recommendations based on user preferences
-        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/recommendations/${userId}`);
+        const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/recommendations/${userId}`);
         setRecommendations(response.data);
       } catch (error) {
         console.error('Error fetching recommendations:', error.message);

@@ -14,7 +14,7 @@ const HotelDetails = () => {
   useEffect(() => {
     const fetchHotelDetails = async () => {
       try {
-        const response = await axios.get(`https://wildlens-tours-backend-q5lv.onrender.com/api/hotels/hotel/${hotelId}`);
+        const response = await axios.get(`https://wildlens-tours-backend-tqh1.onrender.com/api/hotels/hotel/${hotelId}`);
         console.log(response.data)
         setHotel(response.data);
       } catch (error) {
@@ -30,7 +30,7 @@ const HotelDetails = () => {
 const handleRecommendationSubmit = async (e) => {
   e.preventDefault();
   try {
-    const response = await axios.post(`https://wildlens-tours-backend-q5lv.onrender.com/api/hotels/hotel/${hotelId}/recommendations`, {
+    const response = await axios.post(`https://wildlens-tours-backend-tqh1.onrender.com/api/hotels/hotel/${hotelId}/recommendations`, {
       userName: user.name,
       message: recommendation,
     });
