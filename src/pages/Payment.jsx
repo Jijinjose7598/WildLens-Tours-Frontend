@@ -1,7 +1,6 @@
 import  { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faBank } from '@fortawesome/free-solid-svg-icons';
-import { faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { FaCheckCircle } from 'react-icons/fa';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext'; 
@@ -126,9 +125,10 @@ const Payment = () => {
           justifyContent: 'center',
           padding: '20px',
           boxShadow: '0 0 10px rgba(0,0,0,0.1)',
-          backgroundColor: 'rgba(255, 255, 255, 0.9)',
+          backgroundColor: "#1f1e1e",
           borderRadius: '10px',
-          textAlign: 'center'
+          textAlign: 'center',
+          color:"white"
         }}>
           <h2>Payment Methods</h2>
           <div className="payment-icons" style={{ 
@@ -139,7 +139,7 @@ const Payment = () => {
           }}>
             <FontAwesomeIcon 
               icon={faCreditCard} 
-              style={{ fontSize: '50px', color: '#000', cursor: 'pointer' }} 
+              style={{ fontSize: '50px', color: 'white', cursor: 'pointer' }} 
               onClick={() => handlePaymentMethodClick('Credit Card')}
             />
             <img
@@ -160,11 +160,7 @@ const Payment = () => {
               style={{ fontSize: '50px', color: '#003087', cursor: 'pointer' }} 
               onClick={() => handlePaymentMethodClick('Bank Transfer')}
             />
-            <FontAwesomeIcon 
-              icon={faPaypal} 
-              style={{ fontSize: '50px', color: '#003087', cursor: 'pointer' }} 
-              onClick={() => handlePaymentMethodClick('PayPal')}
-            />
+          
           </div>
           {/* Payment form sections */}
           {paymentMethod === 'Credit Card' && (
@@ -227,21 +223,21 @@ const Payment = () => {
                   margin: '20px 0'
                 }}>
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Google_Pay_Logo_%282020%29.svg/2048px-Google_Pay_Logo_%282020%29.svg.png"
+                    src="https://static1.anpoimages.com/wordpress/wp-content/uploads/2020/11/05/Google-Pay-India-Tez-new-icon.jpg"
                     alt="Google Pay"
-                    style={{ width: '80px', height: '50px', cursor: 'pointer' }}
+                    style={{ width: '80px', height: '50px', cursor: 'pointer' , marginRight:"5px",borderRadius:"5px"}}
                     onClick={() => handleUpiMethodClick('Google Pay')}
                   />
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/PhonePe_Logo.svg/2560px-PhonePe_Logo.svg.png"
+                    src="https://www.medianama.com/wp-content/uploads/2018/03/Phonepe.jpg-e1630297416388.jpg"
                     alt="PhonePe"
-                    style={{ width: '80px', height: '50px', cursor: 'pointer' }}
+                    style={{ width: '80px', height: '50px', cursor: 'pointer', marginRight:"5px",borderRadius:"5px" }}
                     onClick={() => handleUpiMethodClick('PhonePe')}
                   />
                   <img
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/BHIM-Logo.svg/2048px-BHIM-Logo.svg.png"
+                    src="https://apps.mgov.gov.in/details/icon/1493;jsessionid=890038D9865AFA6FCE625500A519141F"
                     alt="BHIM"
-                    style={{ width: '80px', height: '50px', cursor: 'pointer' }}
+                    style={{ width: '80px', height: '50px', cursor: 'pointer', marginRight:"5px",borderRadius:"5px" }}
                     onClick={() => handleUpiMethodClick('BHIM')}
                   />
                 </div>
@@ -300,11 +296,7 @@ const Payment = () => {
               <button onClick={handlePayment} className="btn btn-primary mt-3">Confirm Payment</button>
             </div>
           )}
-          {paymentMethod === 'PayPal' && (
-            <div>
-              <p>Redirecting to PayPal...</p>
-            </div>
-          )}
+        
         </div>
 
         {showSuccessPopup && (

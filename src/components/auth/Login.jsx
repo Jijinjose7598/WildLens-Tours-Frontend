@@ -9,20 +9,26 @@ const Login = () => {
   const [error, setError] = useState('');
   const navigate = useNavigate(); // Hook for navigation
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/auth/signin', { email, password });
-      const { token, userId } = response.data;
-      // Save token and userId to sessionStorage
-      sessionStorage.setItem('token', token);
-      sessionStorage.setItem('userId', userId);
-      // Redirect to home page
-      navigate('/home');
-    } catch (err) {
-      setError(err.response?.data?.message || 'An error occurred');
-    }
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const response = await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/auth/signin', { email, password });
+    const { token, userId } = response.data;
+    
+    // Save token and userId to sessionStorage
+    sessionStorage.setItem('token', token);
+    sessionStorage.setItem('userId', userId);
+    
+    // Redirect to home page
+    navigate('/home');
+    
+    // Refresh the page
+    window.location.reload();
+  } catch (err) {
+    setError(err.response?.data?.message || 'An error occurred');
+  }
+};
+
 
   return (
     <div className="login-container" style={{ backgroundImage: "url('https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcT8dj1YVsGUU-PMEpMMhiJtXrn0NhoXOAsNVDORyV-Id2s7Zan4KLeV3pFVFyqtvy9e0upoP0qkYIGd0w1Lt1Np6l3HMGo8fvyh2D8tlg')",}}>

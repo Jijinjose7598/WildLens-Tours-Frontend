@@ -38,6 +38,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const response = await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/auth/signin', credentials);
       sessionStorage.setItem('token', response.data.token);
+      console.log(response.data)
       setUser(response.data.user);
     } catch (error) {
       console.error('Login failed:', error);
@@ -48,6 +49,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await axios.post('https://wildlens-tours-backend-tqh1.onrender.com/api/auth/logout');
       sessionStorage.removeItem('token');
+      sessionStorage.removeItem('userId');
       setUser(null);
     } catch (error) {
       console.error('Logout failed:', error);

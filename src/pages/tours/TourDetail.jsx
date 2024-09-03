@@ -116,7 +116,7 @@ const TourDetail = () => {
       </div>
 
       <div className="actions">
-        <button onClick={handleBookNowClick} className="btn btn-primary">Book Now</button>
+        <button onClick={handleBookNowClick} className="btn btn-primary"  style={{marginBottom:"10px"}}>Book Now</button>
         <button onClick={handleAddReviewClick} className="btn btn-secondary">Add Review</button>
       </div>
 

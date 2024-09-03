@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthContext';
 const PackageBooking = () => {
   const { packageId } = useParams(); // Changed from tourId to packageId
   const { user } = useContext(AuthContext);
+  console.log(user)
   const navigate = useNavigate();
 
   // State variables
@@ -27,7 +28,7 @@ const PackageBooking = () => {
 
   // Fetch package details
   useEffect(() => {
-    if (!user) {
+    if (!user ) {
       navigate('/login');
       return;
     }

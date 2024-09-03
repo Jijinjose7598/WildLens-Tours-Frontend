@@ -223,11 +223,11 @@ const Home = () => {
                     <h5 className="card-title">{tour.title}</h5>
                     <p className="card-text">{tour.description.substring(0, 100)}...</p>
                     <p className="card-text price">₹{tour.price.toLocaleString()}/Person</p>
-                    <Link to={`/tours/${tour._id}`} className="btn btn-primary">Details</Link>
+                    <Link to={`/tours/${tour._id}`} className="btn btn-primary"  style={{marginBottom:"10px"}}>Details</Link>
 
                     {user && (user.isAdmin || user.isSuperAdmin) && (
                       <>
-                        <button onClick={() => handleDeleteTour(tour._id)} className="btn btn-danger">
+                        <button onClick={() => handleDeleteTour(tour._id)} className="btn btn-danger"  style={{marginBottom:"10px"}}>
                           Delete
                         </button>
                         <Link to={`/edit-tour/${tour._id}`} className="btn btn-warning ml-2">
