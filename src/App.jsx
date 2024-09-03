@@ -25,7 +25,7 @@ function App() {
     <AuthProvider>
       <Routes>
         {/* Set the default path to redirect to the login page */}
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/"  />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
          <Route path="/payment" element={<Payment />} />
